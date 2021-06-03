@@ -1,0 +1,108 @@
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+
+body {
+  color: #333333;
+  font-family: 'Sawarabi Mincho', sans-serif;
+  font-size: 16px;
+
+  a {
+    color: #333333;
+    text-decoration: none;
+    &:hover { color: #333333; }
+  }
+
+  header {
+    background-color: lightgray;
+    height: 40px;
+  }
+
+  #Contents {
+    max-width: 576px;
+    height: calc(100vh - (40px + 8px + 48px));
+
+    .Search {
+      width: 90%;
+      font-size: 0.9rem;
+      margin: 8px auto 0;
+
+      &--Font_Icon {
+        font-size: 0.6rem;
+        position: relative;
+          top: -1px;
+      }
+
+      &--Text_Link {
+        &:hover { text-decoration: underline; }
+        background-color: #ffffff;
+        border: none;
+        margin-left: -4px;
+      }
+
+      &--Title { font-size: 0.9rem; }
+      &__Box { margin: -4px 0 4px 16px; }
+      &__Submit {
+        width: 11.5em;
+        margin: 0 178px 0 auto;
+
+        &--Btn {
+          font-size: 0.8rem;
+          padding: 0 4px;
+        }
+
+        &--Default {
+          font-size: 0.7rem;
+          margin-right: -4px;
+          position: relative;
+            top: 5px;
+        }
+      }
+    }
+
+    .Osyalista {
+      width: 90%;
+      height: 80%;
+      border: none;
+      overflow-y: scroll;
+      margin: 8px auto 0;
+
+      &__Card {
+        padding: 4px 8px 0;
+        margin-bottom: 8px;
+
+        &--Name {
+          font-size: 1.5rem;
+          margin: 0;
+        }
+
+        &__Icon {
+          font-size: 0.9rem;
+          margin: 0;
+        }
+
+        &--Address {
+          font-size: 0.8rem;
+          margin: -16px 0 8px;
+        }
+
+        &--Phone {
+          color: #ffffff;
+        }
+
+        &--Link {
+          padding: 0;
+          margin-bottom: 4px;
+          display: block;
+        }
+        &--Text { font-size: 0.7rem; }
+      }
+    }
+  }
+
+  footer {
+    background-color: lightgray;
+    height: 48px;
+  }
+}
