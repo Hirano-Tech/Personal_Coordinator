@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PersonalCoordinator</title>
+    <title>Personal Coordinator</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class='container-fluid'></header>
+    <section id='Contents' class='container-fluid'>
+      <%= yield %>
+    </section>
+    <footer class='container-fluid'></footer>
   </body>
 </html>
