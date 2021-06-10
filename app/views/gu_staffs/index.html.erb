@@ -1,6 +1,28 @@
-<header></header>
+<section class='card'>
+  <div class='Osyalista card-body'>
+    <h1 class='Osyalista--Name card-title'><%= @osyalista[0].name %></h1>
+    <p class='Osyalista--Gender badge rounded-pill bg-danger'>
+      <i class='fas fa-female'></i><%= @osyalista[0].gender %>
+    </p>
+    <p class='Osyalista--Height badge rounded-pill bg-secondary'>
+      <i class='fas fa-arrows-alt-v'></i><%= @osyalista[0].height %> cm
+    </p><br />
+    <p class='Osyalista--Store badge rounded-pill bg-secondary'>
+      <%= link_to "https://goo.gl/maps/#{@osyalista[0].gu_store.google_map}", target: '_blank' do %>
+        <i class='fas fa-map-marker-alt'></i><%= @osyalista[0].gu_store.name %>
+      <% end %>
+    </p><br />
 
-<section id='Contents' class='container'>
+    <%= link_to "https://www.gu-global.com/jp/ja/styling/staff/#{@osyalista[0].staff_id}", target: '_blank', class: 'Osyalista--Button btn btn-outline-primary' do %>
+      <i class='fas fa-external-link-alt'></i>コーディネート一覧
+    <% end %>
+    <%= link_to "tel:#{@osyalista[0].gu_store.phone}", class: 'Osyalista--Phone text-muted' do %>
+      <i class='fas fa-phone'></i>お問い合わせ
+    <% end %>
+  </div>
+</section>
+
+<!-- <section id='Contents' class='container'>
   <div class='Search'>
     <h1 class='Search--Title'><i class='Search--Font_Icon fas fa-circle'></i> 絞り込み検索</h1>
     <%= form_with url: gu_staffs_path, method: 'POST', local: true do |form| %>
@@ -47,6 +69,4 @@
       </div>
     <% end %>
   </article>
-</section>
-
-<footer></foote>
+</section> -->

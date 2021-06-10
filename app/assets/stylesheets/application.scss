@@ -16,10 +16,66 @@ body {
 
   header {
     background-color: lightgray;
-    height: 40px;
+    height: 8vh;
   }
 
   #Contents {
+    background-color: lightyellow;
+    max-width: 540px;
+    height: calc(100vh - 16vh);
+
+    .Osyalista {
+      padding: 8px;
+
+      &--Name {
+        font-size: 1.4rem;
+        margin: 0;
+      }
+
+      &--Gender {
+        .fa-female { margin-right: 4px; }
+        font-size: 0.7rem;
+        margin: 0;
+      }
+
+      &--Height {
+        .fa-arrows-alt-v { margin-right: 4px; }
+        font-size: 0.7rem;
+        margin: 0;
+      }
+
+      &--Store {
+        .fa-map-marker-alt { margin-right: 4px; }
+        font-size: 0.7rem;
+        margin: 0;
+
+        a {
+          &:hover { text-decoration: underline; }
+          color: #ffffff;
+        }
+      }
+
+      &--Button {
+        .fa-external-link-alt { margin-right: 4px; }
+        width: 75%;
+        padding: 2px 8px;
+        margin: 8px 0 0 auto;
+        display: block;
+      }
+
+      &--Phone {
+        .fa-phone { margin-right: 4px; }
+        &:hover { text-decoration: underline; }
+        width: 75%;
+        font-size: 0.8rem;
+        text-align: right;
+        margin: 0 0 0 auto;
+        display: block;
+      }
+    }
+  }
+
+  #Contents2 {
     max-width: 576px;
     height: calc(100vh - (40px + 8px + 48px));
 
@@ -103,6 +159,6 @@ body {
 
   footer {
     background-color: lightgray;
-    height: 48px;
+    height: 8vh;
   }
 }
