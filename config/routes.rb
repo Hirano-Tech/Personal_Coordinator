@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'gu_staffs#index'
+  root to: 'staff/searches#index'
 
-  resources :gu_staffs, only: [:index, :create]
+  namespace :staff do
+    resources :searches, only: [:index]
+    resources :gu_staffs, only: [:index, :create]
+  end
 end
