@@ -1,0 +1,24 @@
+<section class='Search-Form'>
+  <%= form_with url: staff_gu_staffs_path, method: 'POST', local: true do |form| %>
+    <div class='Search-Form__Brand'>
+      <i class='fas fa-tshirt'></i>ブランド：
+      <%= form.radio_button :brand, 'GU', checked: true, class: 'form-check-input', id: 'Brand-Select_GU' %>
+      <%= form.label :brand, image_tag('https://due0xnee3ffkt.cloudfront.net/Images/GU_Logo.webp'), class: 'form-check-label', for: 'Brand-Select_GU' %>
+    </div>
+
+    <div class='Search-Form__Gender'>
+      <i class='fas fa-venus-mars'></i>性別：
+      <%= form.check_box :ladies, { checked: true, class: 'form-check-input', id: 'Gender-Check_Ladies' }, true, false %>
+      <%= form.label :ladies, '女性', class: 'form-check-label', for: 'Gender-Check_Ladies' %>，
+      <%= form.check_box :mens, { checked: true, class: 'form-check-input', id: 'Gender-Check_Mens' }, true, false %>
+      <%= form.label :mens, '男性', class: 'form-check-label', for: 'Gender-Check_Mens' %>
+    </div>
+
+    <div class='Search-Form__Store'>
+      <i class='fas fa-store'></i>所属店舗：
+      <%= form.collection_select :store, GuStore.readonly.select(:id, :name), :id, :name, prompt: '未選択' %>
+    </div>
+
+    <%= form.submit '検索', class: 'Search-Form--Submit btn btn-outline-primary' %>
+  <% end %>
+</section>

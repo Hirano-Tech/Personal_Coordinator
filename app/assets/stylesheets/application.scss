@@ -1,79 +1,126 @@
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 body {
   color: #333333;
-  font-family: 'Sawarabi Mincho', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
 
   a {
+    &:hover { color: #333333; }
     color: #333333;
     text-decoration: none;
-    &:hover { color: #333333; }
-  }
-
-  header {
-    background-color: lightgray;
-    height: 8vh;
   }
 
   #Contents {
-    background-color: lightyellow;
     max-width: 540px;
-    height: calc(100vh - 16vh);
+    height: calc(100vh - 8vh);
+    display: flex;
+      align-items: center;
 
-    .Osyalista {
-      padding: 8px;
+    #GU-Staff {
+      width: 100%;
+      height: 470px;
+      overflow-y: scroll;
 
-      &--Name {
-        font-size: 1.4rem;
-        margin: 0;
+      .Osyalista-Card {
+        margin-bottom: 8px;
+
+        .Osyalista {
+          padding: 8px;
+
+          &--Name {
+            font-size: 1.4rem;
+            margin: 0;
+          }
+
+          &--Gender {
+            .fa-female { margin-right: 4px; }
+            .fa-male { margin-right: 4px; }
+            font-size: 0.7rem;
+            margin: 0;
+          }
+
+          &--Height {
+            .fa-arrows-alt-v { margin-right: 4px; }
+            font-size: 0.7rem;
+            margin: 0;
+          }
+
+          &--Store {
+            .fa-map-marker-alt { margin-right: 4px; }
+            font-size: 0.7rem;
+            margin: 0;
+
+            a {
+              &:hover { text-decoration: underline; }
+              color: #ffffff;
+            }
+          }
+
+          &--Button {
+            .fa-external-link-alt { margin-right: 4px; }
+            width: 75%;
+            padding: 2px 8px;
+            margin: 8px 0 0 auto;
+            display: block;
+          }
+
+          &--Phone {
+            .fa-phone { margin-right: 4px; }
+            &:hover { text-decoration: underline; }
+            width: 7.5em;
+            font-size: 0.8rem;
+            margin: 0 0 0 auto;
+            display: block;
+          }
+        }
+      }
+    }
+
+    .Search-Form {
+      width: 100%;
+      display: flex;
+        justify-content: center;
+
+      &__Brand {
+        #Brand-Select_GU { margin: 10px 4px 0 0; }
+        .fa-tshirt { margin-right: 4px; }
+        margin-bottom: 8px;
       }
 
-      &--Gender {
-        .fa-female { margin-right: 4px; }
-        font-size: 0.7rem;
-        margin: 0;
-      }
+      &__Gender {
+        .fa-venus-mars { margin-right: 4px; }
+        margin-bottom: 8px;
 
-      &--Height {
-        .fa-arrows-alt-v { margin-right: 4px; }
-        font-size: 0.7rem;
-        margin: 0;
-      }
+        #gender_女性 {
+          margin-right: 4px;
+          position: relative;
+            top: 4px;
+        }
 
-      &--Store {
-        .fa-map-marker-alt { margin-right: 4px; }
-        font-size: 0.7rem;
-        margin: 0;
-
-        a {
-          &:hover { text-decoration: underline; }
-          color: #ffffff;
+        #gender_男性 {
+          margin-right: 4px;
+          position: relative;
+            top: 4px;
         }
       }
 
-      &--Button {
-        .fa-external-link-alt { margin-right: 4px; }
-        width: 75%;
-        padding: 2px 8px;
-        margin: 8px 0 0 auto;
-        display: block;
+      &__Store {
+        .fa-store { margin-right: 4px; }
+        margin-bottom: 8px;
       }
 
-      &--Phone {
-        .fa-phone { margin-right: 4px; }
-        &:hover { text-decoration: underline; }
-        width: 75%;
-        font-size: 0.8rem;
-        text-align: right;
-        margin: 0 0 0 auto;
-        display: block;
+      &--Submit {
+        width: 100%;
+        padding: 0;
       }
     }
   }
+
+
 
   #Contents2 {
     max-width: 576px;
@@ -160,5 +207,7 @@ body {
   footer {
     background-color: lightgray;
     height: 8vh;
+    position: absolute;
+      bottom: 0;
   }
 }
