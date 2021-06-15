@@ -11,9 +11,16 @@
   </head>
 
   <body>
-    <section id='Contents' class='container-fluid'>
+    <section id='Contents' class=''>
       <%= yield %>
     </section>
-    <footer class='container-fluid'></footer>
+    <footer class=''>
+      <%= link_to root_path, class: 'Footer-Menu btn btn-outline-dark' do %>
+        <div>
+          <i class='fas fa-home'></i><br />
+          <span class='Footer-Menu--Text'>ホーム</span>
+        </div>
+      <% end %>
+    </footer>
   </body>
 </html>
