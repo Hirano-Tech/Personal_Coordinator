@@ -4,6 +4,8 @@ class CreateGuOsyarista < ActiveRecord::Migration[6.1]
       t.string :name, null: false
       t.string :gender, null: false
       t.integer :height, null: false
+      t.boolean :official, default: false
+      t.string :instagram_id
       t.string :staff_id, null: false
       t.references :gu_store, foreign_key: true
       t.timestamps

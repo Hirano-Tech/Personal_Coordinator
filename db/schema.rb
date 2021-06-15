@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2021_05_30_063606) do
     t.string "name", null: false
     t.string "gender", null: false
     t.integer "height", null: false
+    t.boolean "official", default: false
+    t.string "instagram_id"
     t.string "staff_id", null: false
     t.bigint "gu_store_id"
     t.datetime "created_at", precision: 6, null: false
