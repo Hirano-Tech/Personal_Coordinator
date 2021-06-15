@@ -1,5 +1,8 @@
 class Staff::GuStaffsController < ApplicationController
   def index
+    if @osyalista.blank?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -21,10 +24,13 @@ class Staff::GuStaffsController < ApplicationController
       unless search_params[:store].blank?
         @osyalista = @osyalista.select { |osyalista| osyalista.gu_store_id == search_params[:store].to_i }
       end
-    else
     end
 
-    render action: :index, osyalista: @osyalista
+    if @osyalista.blank?
+      redirect_to root_path
+    else
+      render action: :index, osyalista: @osyalista
+    end
   end
 
   private
