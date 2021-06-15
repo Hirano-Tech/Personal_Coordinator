@@ -2,7 +2,15 @@
   <% @osyalista.each do | osyalista | %>
     <section class='Osyalista-Card card'>
       <div class='Osyalista card-body'>
-        <h1 class='Osyalista--Name card-title'><%= osyalista.name %></h1>
+        <div class='Osyalista__Name'>
+          <h1 class='Osyalista__Name--Text card-title'><%= osyalista.name %></h1>
+          <% if osyalista.official == true %>
+            <p class='Osyalista__Name--Badge badge rounded-pill bg-warning text-dark'>
+              <i class='far fa-id-badge'></i>公認インフルエンサー
+            </p>
+          <% end %>
+        </div>
+
         <% if osyalista.gender == '女性' %>
           <p class='Osyalista--Gender badge rounded-pill bg-danger'>
             <i class='fas fa-female'></i><%= osyalista.gender %>
