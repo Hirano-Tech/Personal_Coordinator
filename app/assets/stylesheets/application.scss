@@ -30,6 +30,7 @@
         width: 100vw;
         max-width: 540px;
         height: 100vh;
+        height: calc(let(--vh, 1vh) * 100);
         object-fit: cover;
         display: block;
       }
