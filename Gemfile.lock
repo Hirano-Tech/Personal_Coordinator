@@ -249,33 +249,33 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap (>= 1.4.4)
-  bootstrap (~> 5.0.1)
-  byebug
+  bootsnap (~> 1.7, >= 1.7.5)
+  bootstrap (~> 5.0, >= 5.0.1)
+  byebug (~> 11.1, >= 11.1.3)
   capistrano (~> 3.16)
   capistrano-bundler (~> 2.0, >= 2.0.1)
   capistrano-rails (~> 1.6, >= 1.6.1)
   capistrano-rbenv (~> 2.2)
   capistrano3-unicorn (~> 0.2.1)
-  capybara (>= 3.26)
+  capybara (~> 3.35, >= 3.35.3)
   font-awesome-sass (~> 5.15, >= 5.15.1)
-  jbuilder (~> 2.7)
-  jquery-rails
-  listen (~> 3.3)
-  mysql2 (~> 0.5)
+  jbuilder (~> 2.11, >= 2.11.2)
+  jquery-rails (~> 4.4)
+  listen (~> 3.5, >= 3.5.1)
+  mysql2 (~> 0.5.3)
   pry (~> 0.14.1)
-  puma (~> 5.0)
-  rack-mini-profiler (~> 2.0)
+  puma (~> 5.3, >= 5.3.2)
+  rack-mini-profiler (~> 2.3, >= 2.3.2)
   rails (~> 6.1.3, >= 6.1.3.2)
-  sass-rails (>= 6)
-  selenium-webdriver
-  spring
-  turbolinks (~> 5)
-  tzinfo-data
+  sass-rails (~> 6.0)
+  selenium-webdriver (~> 3.142, >= 3.142.7)
+  spring (~> 2.1, >= 2.1.1)
+  turbolinks (~> 5.2, >= 5.2.1)
+  tzinfo-data (~> 1.2021, >= 1.2021.1)
   unicorn (~> 6.0)
-  web-console (>= 4.1.0)
-  webdrivers
-  webpacker (~> 5.0)
+  web-console (~> 4.1)
+  webdrivers (~> 4.6)
+  webpacker (~> 5.4)
 
 RUBY VERSION
    ruby 3.0.1p64
