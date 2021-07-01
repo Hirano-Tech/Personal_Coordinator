@@ -1,41 +1,79 @@
-<div id='GU-Staff'>
-  <% @osyalista.each do | osyalista | %>
+<section class='Osyalista-Search'>
+  <%= image_tag 'https://due0xnee3ffkt.cloudfront.net/Images/木にもたれかかる女子.webp', class: 'Osyalista-Search__Background' %>
+
+  <div class='Osyalista'>
+    <% @osyalista.each do | osyalista | %>
+      <div class='Background card'>
+        <div class='card-body'>
+          <h1 class='Osyalista--Name card-title'><%= osyalista.name %></h1>
+
+          <% if osyalista.gender == 1 %>
+            <p class='Osyalista--Gender badge rounded-pill bg-danger'>
+              <% ladies = '女性' %>
+              <i class='fas fa-female'></i><%= ladies %>
+            </p>
+          <% elsif osyalista.gender == 0 %>
+            <p class='Osyalista--Gender badge rounded-pill bg-primary'>
+              <% mens = '男性' %>
+              <i class='fas fa-male'></i><%= mens %>
+            </p>
+          <% end %>
+
+          <p class='Osyalista--Height badge rounded-pill bg-secondary'>
+            <i class='fas fa-arrows-alt-v'></i><%= osyalista.height %> cm
+          </p>
+
+          <p class='Osyalista--Store badge rounded-pill bg-secondary'>
+            <i class='fas fa-map-marker-alt'></i><%= osyalista.gu_store.name %>
+          </p>
+
+          <%= link_to "https://www.gu-global.com/jp/ja/styling/staff/#{osyalista.staff_id}", target: '_blank', class: 'Osyalista--Button btn btn-outline-primary' do %>
+            <i class='fas fa-external-link-alt'></i>コーディネート一覧
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<!-- <div id='GU-Staff'>
+  <%# @osyalista.each do | osyalista | %>
     <section class='Osyalista-Card card'>
       <div class='Osyalista card-body'>
         <div class='Osyalista__Name'>
-          <h1 class='Osyalista__Name--Text card-title'><%= osyalista.name %></h1>
-          <% if osyalista.official == true %>
+          <h1 class='Osyalista__Name--Text card-title'><%#= osyalista.name %></h1>
+          <%# if osyalista.official == true %>
             <p class='Osyalista__Name--Badge badge rounded-pill bg-warning text-dark'>
               <i class='far fa-id-badge'></i>公認インフルエンサー
             </p>
-          <% end %>
+          <%# end %>
         </div>
 
-        <% if osyalista.gender == '女性' %>
+        <%# if osyalista.gender == '女性' %>
           <p class='Osyalista--Gender badge rounded-pill bg-danger'>
-            <i class='fas fa-female'></i><%= osyalista.gender %>
+            <i class='fas fa-female'></i><%#= osyalista.gender %>
           </p>
-        <% elsif osyalista.gender == '男性' %>
+        <%# elsif osyalista.gender == '男性' %>
           <p class='Osyalista--Gender badge rounded-pill bg-primary'>
-            <i class='fas fa-male'></i><%= osyalista.gender %>
+            <i class='fas fa-male'></i><%#= osyalista.gender %>
           </p>
-        <% end %>
+        <%# end %>
         <p class='Osyalista--Height badge rounded-pill bg-secondary'>
-          <i class='fas fa-arrows-alt-v'></i><%= osyalista.height %> cm
+          <i class='fas fa-arrows-alt-v'></i><%#= osyalista.height %> cm
         </p><br />
         <p class='Osyalista--Store badge rounded-pill bg-secondary'>
-          <%= link_to "https://goo.gl/maps/#{osyalista.gu_store.google_map}", target: '_blank' do %>
-            <i class='fas fa-map-marker-alt'></i><%= osyalista.gu_store.name %>
-          <% end %>
+          <%#= link_to "https://goo.gl/maps/#{osyalista.gu_store.google_map}", target: '_blank' do %>
+            <i class='fas fa-map-marker-alt'></i><%#= osyalista.gu_store.name %>
+          <%# end %>
         </p><br />
 
-        <%= link_to "https://www.gu-global.com/jp/ja/styling/staff/#{osyalista.staff_id}", target: '_blank', class: 'Osyalista--Button btn btn-outline-primary' do %>
+        <%#= link_to "https://www.gu-global.com/jp/ja/styling/staff/#{osyalista.staff_id}", target: '_blank', class: 'Osyalista--Button btn btn-outline-primary' do %>
           <i class='fas fa-external-link-alt'></i>コーディネート一覧
-        <% end %>
-        <%= link_to "tel:#{osyalista.gu_store.phone}", class: 'Osyalista--Phone text-muted' do %>
+        <%# end %>
+        <%#= link_to "tel:#{osyalista.gu_store.phone}", class: 'Osyalista--Phone text-muted' do %>
           <i class='fas fa-phone'></i>お問い合わせ
-        <% end %>
+        <%# end %>
       </div>
     </section>
-  <% end %>
-</div>
+  <%# end %>
+</div> -->
