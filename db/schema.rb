@@ -10,31 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_30_063606) do
+ActiveRecord::Schema.define(version: 0) do
 
-  create_table "gu_osyarista", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "gu_staffs", id: { type: :integer, limit: 2, unsigned: true }, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.string "gender", null: false
-    t.integer "height", null: false
-    t.boolean "official", default: false
-    t.string "instagram_id"
+    t.integer "height", limit: 1, null: false, unsigned: true
     t.string "staff_id", null: false
-    t.bigint "gu_store_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["gu_store_id"], name: "index_gu_osyarista_on_gu_store_id"
-    t.index ["staff_id"], name: "index_gu_osyarista_on_staff_id", unique: true
+    t.integer "store_id", limit: 2, null: false, unsigned: true
+    t.index ["staff_id"], name: "staff_id", unique: true
+    t.index ["store_id"], name: "store_id"
   end
 
-  create_table "gu_stores", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "gu_stores", id: { type: :integer, limit: 2, unsigned: true }, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
+    t.integer "prefecture_id", limit: 1, null: false, unsigned: true
     t.string "address", null: false
-    t.string "google_map", null: false
     t.string "phone", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["google_map"], name: "index_gu_stores_on_google_map", unique: true
+    t.index ["prefecture_id"], name: "prefecture_id"
   end
 
-  add_foreign_key "gu_osyarista", "gu_stores"
+  create_table "prefectures", id: { type: :integer, limit: 1, unsigned: true }, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  add_foreign_key "gu_staffs", "gu_stores", column: "store_id", name: "gu_staffs_ibfk_1"
+  add_foreign_key "gu_stores", "prefectures", name: "gu_stores_ibfk_1"
 end
