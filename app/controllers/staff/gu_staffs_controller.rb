@@ -1,36 +1,26 @@
 class Staff::GuStaffsController < ApplicationController
   def index
     if @osyalista.blank?
-      redirect_to root_path
+      redirect_to staff_searches_path
     end
   end
 
   def create
-    if search_params[:ladies] == 'true' && search_params[:mens] == 'true'
-      @osyalista = GuOsyaristum.readonly.order(gender: :ASC, height: :ASC).includes(:gu_store)
-
-      unless search_params[:store].blank?
-        @osyalista = @osyalista.select { |osyalista| osyalista.gu_store_id == search_params[:store].to_i }
-      end
+    if search_params[:ladies].blank? && search_params[:mens].blank?
+      redirect_to staff_searches_path
+    elsif search_params[:ladies] == 'true' && search_params[:mens] == 'true'
+      @osyalista = Osyalista.readonly.order(gender: :DESC, height: :ASC).includes(gu_store: :prefecture)
     elsif search_params[:ladies] == 'true'
-      @osyalista = GuOsyaristum.readonly.where(gender: '女性').order(height: :ASC).includes(:gu_store)
-
-      unless search_params[:store].blank?
-        @osyalista = @osyalista.select { |osyalista| osyalista.gu_store_id == search_params[:store].to_i }
-      end
+      @osyalista = Osyalista.readonly.where(gender: true).order(height: :ASC).includes(gu_store: :prefecture)
     elsif search_params[:mens] == 'true'
-      @osyalista = GuOsyaristum.readonly.where(gender: '男性').order(height: :ASC).includes(:gu_store)
-
-      unless search_params[:store].blank?
-        @osyalista = @osyalista.select { |osyalista| osyalista.gu_store_id == search_params[:store].to_i }
-      end
+      @osyalista = Osyalista.readonly.where(gender: false).order(height: :ASC).includes(gu_store: :prefecture)
     end
 
-    if @osyalista.blank?
-      redirect_to root_path
-    else
-      render action: :index, osyalista: @osyalista
+    unless search_params[:store].blank?
+      @osyalista = @osyalista.select { |osyalista| osyalista.store_id == search_params[:store].to_i }
     end
+
+    render action: :index, osyalista: @osyalista
   end
 
   private
