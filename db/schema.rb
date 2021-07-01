@@ -14,9 +14,11 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "gu_staffs", id: { type: :integer, limit: 2, unsigned: true }, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
+    t.integer "gender", limit: 1, default: 1, null: false, unsigned: true
     t.integer "height", limit: 1, null: false, unsigned: true
     t.string "staff_id", null: false
     t.integer "store_id", limit: 2, null: false, unsigned: true
+    t.integer "official", limit: 1, default: 0, null: false, unsigned: true
     t.index ["staff_id"], name: "staff_id", unique: true
     t.index ["store_id"], name: "store_id"
   end
