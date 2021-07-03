@@ -41,6 +41,8 @@
 - **Cloud Front**
 - **Virtual Private Cloud**
 
+<img src='https://user-images.githubusercontent.com/63486456/124360777-96d13500-dc66-11eb-9f26-2a98d12d9049.png' alt='【画像】 インフラ構成図' title='インフラ構成図' width='40%' />
+
 ##### ❔ Q＆A：なぜ、別リージョンに配置しているのですか？
 
   - 基本的に利用料金 最安値構成にしています。  
@@ -197,7 +199,6 @@ def create
 
 ## 👨🏻‍💻 ⑧ 開発者プロフィール
 
-- Wantedly：[Wantedly](https://www.wantedly.com/id/Hirano_Tech)（要 ログイン）
 - GitHub：[GitHub](https://github.com/Hirano-Tech)
   - [現在 個人開発している別のアプリケーション | GitHub](https://github.com/Hirano-Tech/Piston2438_DJ-MIX)
 - Twitter：[@Hirano_Tech](https://twitter.com/Hirano_Tech)
