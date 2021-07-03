@@ -31,14 +31,11 @@
   - インスタンスタイプ：t2.micro（無料利用枠）
   - URL：http://13.208.151.178
     - スマートフォンからの閲覧を推奨します。
-    - 事前に、ジーユー（[iPhone](https://apps.apple.com/us/app/%E3%82%B8%E3%83%BC%E3%83%A6%E3%83%BC/id504542019)，[Android](https://play.google.com/store/apps/details?id=com.osharemaker)）ネイティブアプリケーションのインストールをお勧めします。
+    - 事前に、ジーユー（[iOS](https://apps.apple.com/us/app/%E3%82%B8%E3%83%BC%E3%83%A6%E3%83%BC/id504542019)，[Android](https://play.google.com/store/apps/details?id=com.osharemaker)）ネイティブアプリケーションのインストールをお勧めします。
 
 - **Relational Database Service**
   - Region：米国西部（オレゴン）
-  - インスタンスタイプ：db.t2.micro
-    - 無料利用期間後は、db.t3.micro に変更する予定です。
-  - 予算：＄0.017 × 720 時間 = ＄12.24 ≒ ￥1356.13
-    - db.t3.micro の料金で、見積もりしています。 
+  - インスタンスタイプ：db.t2.micro（無料利用枠）
 
 - **Simple Storage Service**
 - **Cloud Front**
@@ -47,7 +44,7 @@
 ##### ❔ Q＆A：なぜ、別リージョンに配置しているのですか？
 
   - 基本的に利用料金 最安値構成にしています。  
-その中でも、アメリカ東海岸よりは日本からの距離が近くなるため、米国西部（オレゴン） を採択しました。
+[別アプリケーション | GitHub](https://github.com/Hirano-Tech/Piston2438_DJ-MIX) にて、EC2 インスタンスを個人利用しているため、RDS インスタンスは現在 無料利用枠ですが、費用面で最安値となる国外を採択しています。
 
 ## ⚙️　④ Dockerfile 備忘録
 
@@ -122,6 +119,8 @@ $mysql> CREATE TABLE IF NOT EXISTS 'テーブル名'(
 | staff_id |   VARCHAR(255)    |  NO  | UNI |  NULL   |                |
 | store_id | SMALLINT UNSIGNED |  NO  | MUL |  NULL   |                |
 | official | TINYINT UNSIGNED  |  NO  |     |    0    |                |
+
+- `staff_id` カラムは、各おしゃリスタページの URL（`https://www.gu-global.com/jp/ja/styling/staff/`）に割り振られている値を格納しているため、外部キーではなく **一意性** です。
 
 ```SQL
 $mysql> CREATE TABLE IF NOT EXISTS 'テーブル名'(
