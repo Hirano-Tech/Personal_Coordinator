@@ -9,7 +9,7 @@
   5. 私は、これから廃れゆくと言われている '販売員' の新たな活躍の場であると感じ、開発しています。
 
 > ###### 🔗　参考資料
-> [“売りにつながる” ソーシャルメディアとインフルエンサーの実態調査 | 株式会社トライバルメディアハウス](https://www.tribalmedia.co.jp/news/13629)
+> > [“売りにつながる” ソーシャルメディアとインフルエンサーの実態調査 | 株式会社トライバルメディアハウス](https://www.tribalmedia.co.jp/news/13629)
 
 ---
 
@@ -20,13 +20,18 @@
 - **MySQL** Version 8.0.25
 - **Docker** Version 20.10.7
 
+##### ❔ Q＆A：なぜ、開発環境に Docker を使っているの？
+
+  - Docker は、Linux 環境（及び、CUI コマンド）に慣れるためです。
+
 ## 🌏　③ 技術仕様（本番環境）
 
 - **Elastic Compute Cloud**
   - Region：アジア・パシフィック（大阪）
-  - インスタンスタイプ：
-  - 予算：＄0.0031 × 720 時間 = ＄2.232 ≒ ￥247.29
-  - URL：
+  - インスタンスタイプ：t2.micro（無料利用枠）
+  - URL：http://13.208.151.178
+    - スマートフォンからの閲覧を推奨します。
+    - 事前に、ジーユー（[iPhone](https://apps.apple.com/us/app/%E3%82%B8%E3%83%BC%E3%83%A6%E3%83%BC/id504542019)，[Android](https://play.google.com/store/apps/details?id=com.osharemaker)）ネイティブアプリケーションのインストールをお勧めします。
 
 - **Relational Database Service**
   - Region：米国西部（オレゴン）
@@ -38,6 +43,11 @@
 - **Simple Storage Service**
 - **Cloud Front**
 - **Virtual Private Cloud**
+
+##### ❔ Q＆A：なぜ、別リージョンに配置しているのですか？
+
+  - 基本的に利用料金 最安値構成にしています。  
+その中でも、アメリカ東海岸よりは日本からの距離が近くなるため、米国西部（オレゴン） を採択しました。
 
 ## ⚙️　④ Dockerfile 備忘録
 
@@ -55,7 +65,7 @@ RUN bundle install
 ```
 
 > ###### 🔗　参考資料
-> [Docker を Compose しないで、ローカル環境を構築する。| Zenn](https://zenn.dev/hirano_tech/articles/68dbdc185dfb61)
+> > ● [Docker を Compose しないで、ローカル環境を構築する。| Zenn](https://zenn.dev/hirano_tech/articles/68dbdc185dfb61)
 
 ## 🗄　⑤ データベース設計
 
@@ -74,7 +84,7 @@ $mysql> CREATE TABLE IF NOT EXISTS 'テーブル名'(
 ```
 
 > ###### 🔗　参考資料
-> [シーディング ファイル](https://github.com/Hirano-Tech/Seeding-Vault/blob/master/Ruby_Prefecture.rb)
+> > ● [都道府県データ Seeds ファイル](https://github.com/Hirano-Tech/Seeding-Vault/blob/master/Ruby_Prefecture.rb)
 
 ### ● ジーユー 国内店舗一覧データを管理するテーブル
 
@@ -99,7 +109,7 @@ $mysql> CREATE TABLE IF NOT EXISTS 'テーブル名'(
 ```
 
 > ###### 🔗　参考資料
-> [シーディング ファイル](https://github.com/Hirano-Tech/Seeding-Vault/blob/master/Ruby_GU-Store.rb)
+> > ● [ジーユー 国内店舗一覧データ Seeds ファイル](https://github.com/Hirano-Tech/Seeding-Vault/blob/master/Ruby_GU-Store.rb)
 
 ### ● ジーユー おしゃリスタ一覧データを管理するテーブル
 
@@ -128,7 +138,7 @@ $mysql> CREATE TABLE IF NOT EXISTS 'テーブル名'(
 ```
 
 > ###### 🔗　参考資料
-> [シーディング ファイル](https://github.com/Hirano-Tech/Seeding-Vault/blob/master/Ruby_GU-Osyalista.rb)
+> > ● [おしゃリスタ一覧データ Seeds ファイル](https://github.com/Hirano-Tech/Seeding-Vault/blob/master/Ruby_GU-Osyalista.rb)
 
 ## 🔍　⑥ おしゃリスタ検索 処理の流れ
 
@@ -165,14 +175,31 @@ def create
 
 ---
 
-## 💭　⑦ この Web サービスに認証機能を取り入れない理由
+## 🔜　⑦ これから、実装予定の機能
 
-### ● ユーザーが新しいサービスを体験しようとする際の最大の障壁は "ログイン" である。ということ。
+1. 期限付き Cookie を使用した気になるおしゃリスタの一時保存機能  
+● 誰でも気軽に利用してもらいたいため、できる限り 認証機能は使わずにブックマーク機能を実装する。
 
-> ###### 🔗　参考資料
-> > [『成功』とは何か？ | Voicy](https://voicy.jp/channel/941/110099)
+2. Instagram グラフ API を使用し、GU公認スタッフインフルエンサーアカウントの情報取得  
 
-## 🔜　⑧ 次に、実装予定の機能
+- GU公認スタッフインフルエンサー 備忘録
+  - [Moena | パワーモール前橋みなみ店](https://www.gu-global.com/jp/ja/styling/staff/31f2bd7bd00f450491b9e9ea309a185c)
+  - [Haru | 郡山八山田店](https://www.gu-global.com/jp/ja/styling/staff/b3cfe95deda8a8733e81a698634ed0d3)
+  - [Rikako | 銀座店](https://www.gu-global.com/jp/ja/styling/staff/cfa973461ff2efe679613a4296f8d492)
+  - [mika | 東金店](https://www.gu-global.com/jp/ja/styling/staff/594d39914b575d9b8d699b0f17992797)
+  - [kozue | 富士店](https://www.gu-global.com/jp/ja/styling/staff/a3852599700d6ddce64d8a845ee8e729) 
+  - [Ryoko | 心斎橋店](https://www.gu-global.com/jp/ja/styling/staff/110d0136606abcd2fe3ed270ef3802f8)
+  - [aki | イオンモール堺北花田店](https://www.gu-global.com/jp/ja/styling/staff/3ad9bbef4e203cca178dcc73740247eb)
+  - [yuko | 西宮浜店](https://www.gu-global.com/jp/ja/styling/staff/2634826eb62569f8b708a9244d140e76)
+  - [Kai | イオンモール新居浜店](https://www.gu-global.com/jp/ja/styling/staff/e166b68d21bdcc8a96ea9d57abe07bc0)
+  - [Satomi | ヨドバシ博多店](https://www.gu-global.com/jp/ja/styling/staff/ce22f6d46f1dad725beece0b2e0bea64)
 
-1. 期限付き Cookie を使用した気になるおしゃリスタの一時保存機能
-2. Instagram グラフ API を使用した公認インフルエンサーアカウントの連携
+---
+
+## 👨🏻‍💻 ⑧ 開発者プロフィール
+
+- Wantedly：[Wantedly](https://www.wantedly.com/id/Hirano_Tech)（要 ログイン）
+- GitHub：[GitHub](https://github.com/Hirano-Tech)
+  - [現在 個人開発している別のアプリケーション | GitHub](https://github.com/Hirano-Tech/Piston2438_DJ-MIX)
+- Twitter：[@Hirano_Tech](https://twitter.com/Hirano_Tech)
+- Zenn：[Zenn](https://zenn.dev/hirano_tech)
